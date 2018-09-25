@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDA77A4C215AC8D4006FCD05 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA77A4B215AC8D4006FCD05 /* MenuScene.swift */; };
+		DDA77A4E215AD1C0006FCD05 /* bling.wav in Resources */ = {isa = PBXBuildFile; fileRef = DDA77A4D215AD1C0006FCD05 /* bling.wav */; };
 		DDF049DB215188D700BB0974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF049DA215188D700BB0974 /* AppDelegate.swift */; };
 		DDF049E1215188D800BB0974 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF049E0215188D800BB0974 /* GameScene.swift */; };
 		DDF049E3215188D800BB0974 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF049E2215188D800BB0974 /* GameViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DDA77A4B215AC8D4006FCD05 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		DDA77A4D215AD1C0006FCD05 /* bling.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bling.wav; path = ../../../../Downloads/SpriteKitGame/bling.wav; sourceTree = "<group>"; };
 		DDF049D7215188D700BB0974 /* ColorSwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorSwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF049DA215188D700BB0974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF049E0215188D800BB0974 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 		DDF049D9215188D700BB0974 /* ColorSwitch */ = {
 			isa = PBXGroup;
 			children = (
+				DDA77A4D215AD1C0006FCD05 /* bling.wav */,
 				DDF04A11215191BE00BB0974 /* Template */,
 				DDF04A10215191AD00BB0974 /* ViewConroller */,
 				DDF049EC215188DB00BB0974 /* Info.plist */,
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				DDF049E0215188D800BB0974 /* GameScene.swift */,
+				DDA77A4B215AC8D4006FCD05 /* MenuScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDF049E6215188D800BB0974 /* Main.storyboard in Resources */,
+				DDA77A4E215AD1C0006FCD05 /* bling.wav in Resources */,
 				DDF049E8215188DA00BB0974 /* Assets.xcassets in Resources */,
 				DDF049EB215188DB00BB0974 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -296,6 +303,7 @@
 			files = (
 				DDF049E1215188D800BB0974 /* GameScene.swift in Sources */,
 				DDF049E3215188D800BB0974 /* GameViewController.swift in Sources */,
+				DDA77A4C215AC8D4006FCD05 /* MenuScene.swift in Sources */,
 				DDF04A13215191E600BB0974 /* Settings.swift in Sources */,
 				DDF049DB215188D700BB0974 /* AppDelegate.swift in Sources */,
 			);
