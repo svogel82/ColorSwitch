@@ -29,6 +29,7 @@ class GameScene: SKScene {
     
     let scoreLabel = SKLabelNode(text: "0")
     var score = 0
+    var gravityIndex = -2.0
     
     
     override func didMove(to view: SKView) {
@@ -38,7 +39,7 @@ class GameScene: SKScene {
     }
     
     func setupPhysics(){
-    physicsWorld.gravity = CGVector(dx: 0.0, dy: -2.0)
+    physicsWorld.gravity = CGVector(dx: 0.0, dy: gravityIndex)
     physicsWorld.contactDelegate = self
     }
     
@@ -110,6 +111,15 @@ class GameScene: SKScene {
         turnWheel()
     }
     
+/*    func updateGravity(){
+        if score > 10 {
+            gravityIndex = -4.0
+        }else if score > 20 {
+            gravityIndex = -6.0
+        }
+        
+    }*/
+    
 }
 
 
@@ -126,6 +136,7 @@ extension GameScene: SKPhysicsContactDelegate{
                     run(SKAction.playSoundFileNamed("bling", waitForCompletion: false))
                     score += 1
                     updateScoreLabel()
+                  //  updateGravity()
                     ball.run(SKAction.fadeOut(withDuration: 0.25), completion:  {
                         ball.removeFromParent()
                         self.spawnBall()
