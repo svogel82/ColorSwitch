@@ -30,6 +30,7 @@ class GameScene: SKScene {
     let scoreLabel = SKLabelNode(text: "0")
     var score = 0
     var gravityIndex = -2.0
+    let gravitiyLabel = SKLabelNode (text: "Level 1")
     
     
     override func didMove(to view: SKView) {
@@ -57,14 +58,36 @@ class GameScene: SKScene {
         scoreLabel.fontName = "AvenirNext-Bold"
         scoreLabel.fontSize = 60.0
         scoreLabel.fontColor = UIColor.white
-        scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY)
+        scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY - 60)
         scoreLabel.zPosition = ZPositions.label
         addChild(scoreLabel)
+        
+        
+        gravitiyLabel.fontName = "AvenirNext-Bold"
+        gravitiyLabel.fontSize = 60.0
+        gravitiyLabel.fontColor = UIColor.white
+        gravitiyLabel.position = CGPoint(x: frame.midX, y: frame.midY)
+        gravitiyLabel.zPosition = ZPositions.label
+        addChild(gravitiyLabel)
         spawnBall()
+        
+        
+        
     }
     
     func updateScoreLabel(){
         scoreLabel.text = "\(score)"
+    }
+    
+    func updateGravitiyLabel(){
+        if score > 5 {
+            gravitiyLabel.text = "Level 2"
+        };if score > 10 {
+            gravitiyLabel.text = "Level 3"
+        };if score > 15{
+            gravitiyLabel.text = "Level 4"
+        }
+        
     }
     
     func spawnBall(){
@@ -96,10 +119,15 @@ class GameScene: SKScene {
     
     func gameOver(){
         UserDefaults.standard.set(score, forKey: "RecentScore")
+        //UserDefaults.standard.set(gravitiyLabel, forKey: "Level")
+        
         
         if score > UserDefaults.standard.integer(forKey: "Highscore"){
             UserDefaults.standard.set(score, forKey: "Highscore")
+        
+        
         }
+        
         
         
         let menuScene = MenuScene(size: view!.bounds.size)
@@ -111,14 +139,16 @@ class GameScene: SKScene {
         turnWheel()
     }
     
-/*    func updateGravity(){
-        if score > 10 {
-            gravityIndex = -4.0
-        }else if score > 20 {
-            gravityIndex = -6.0
-        }
+   func updateGravity(){
+        if score > 5 {
+            gravityIndex = -3.0
+    };if score > 10 {
+            gravityIndex = -5.0
+    };if score > 15{
+            gravityIndex = -7.0
+    }
         
-    }*/
+    }
     
 }
 
@@ -136,7 +166,9 @@ extension GameScene: SKPhysicsContactDelegate{
                     run(SKAction.playSoundFileNamed("bling", waitForCompletion: false))
                     score += 1
                     updateScoreLabel()
-                  //  updateGravity()
+                    updateGravitiyLabel()
+                    updateGravity()
+                    setupPhysics()
                     ball.run(SKAction.fadeOut(withDuration: 0.25), completion:  {
                         ball.removeFromParent()
                         self.spawnBall()

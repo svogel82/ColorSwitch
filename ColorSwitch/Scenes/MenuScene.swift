@@ -53,6 +53,13 @@ class MenuScene: SKScene {
         recentScoreLabel.position = CGPoint(x: frame.midX, y: highScoreLabel.position.y - recentScoreLabel.frame.size.height*2)
         addChild(recentScoreLabel)
         
+        let highestLevel = SKLabelNode(text: "Highest Level:" + " \(UserDefaults.standard.string(forKey: "Level") ?? "Level 0")")
+        highestLevel.fontName = "AvenirNext-Bold"
+        highestLevel.fontSize = 20.0
+        highestLevel.fontColor = UIColor.white
+        highestLevel.position = CGPoint(x: frame.midX, y: recentScoreLabel.position.y - highestLevel.frame.size.height*2)
+        addChild(highestLevel)
+        
     }
     
     func animate(label: SKLabelNode){
